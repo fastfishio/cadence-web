@@ -9,7 +9,9 @@ describe('Task List', () => {
       .withTaskListPollers('ci_task_list', pollers)
       .go();
 
-    const taskListEl = await testEl.waitUntilExists('section.task-list');
+    const taskListEl = await testEl.waitUntilExists(
+      'section.task-list-pollers'
+    );
 
     return [taskListEl, scenario];
   }
@@ -28,7 +30,7 @@ describe('Task List', () => {
         moment()
           .startOf('hour')
           .add(m, 'minutes')
-          .format('ddd MMMM Do, h:mm:ss a')
+          .format('MMM D, YYYY h:mm:ss A')
       )
     );
     taskListEl
